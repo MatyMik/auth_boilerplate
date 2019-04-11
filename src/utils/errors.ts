@@ -1,0 +1,47 @@
+export class ApiError extends Error {
+  static message: string = 'Something went wrong';
+  static status: number;
+  static code: string;
+  payload?: any;
+
+  static createMessage(message: string, code: string) {
+    const parts = [message || this.message, this.status, code || this.code];
+    return parts.join('|');
+  }
+
+  constructor(message?: string, code?: string, payload?: any) {
+    super();
+    this.message = (this.constructor as typeof ApiError).createMessage(message, code);
+    if (payload) this.payload = payload;
+  }
+}
+
+export class RequestError extends ApiError {
+  static message = 'Request error';
+  static status = 400;
+  static code = 'INVALID_REQUEST';
+}
+
+export class AuthorizationError extends ApiError {
+  static message = 'Unauthorized';
+  static status = 401;
+  static code = 'UNAUTHORIZED';
+}
+
+export class PermissionError extends ApiError {
+  static message = 'Permission error';
+  static status = 403;
+  static code = 'PERMISSION_ERROR';
+}
+
+export class NotFoundError extends ApiError {
+  static message = 'Resource not found';
+  static status = 404;
+  static code = 'NOT_FOUND';
+}
+
+export class ValidationError extends ApiError {
+  static message = 'Validation error';
+  static status = 422;
+  static code = 'VALIDATION_ERROR';
+}

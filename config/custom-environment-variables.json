@@ -1,0 +1,18 @@
+{
+  "server": {
+    "port": "SERVER_PORT"
+  },
+  "app": {
+    "hostname": "APP_HOSTNAME"
+  },
+  "morgan": {
+    "enabled": "MORGAN_ENABLED",
+    "pattern": "MORGAN_PATTERN"
+  },
+  "logger": {
+    "debugEnabled": "LOGGER_DEBUG_ENABLED"
+  },
+  "discovery": {
+    "enabled": "DISCOVERY_ENABLED"
+  }
+}

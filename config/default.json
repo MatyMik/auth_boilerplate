@@ -1,0 +1,18 @@
+{
+  "server": {
+    "port": 4000
+  },
+  "app": {
+    "hostname": "http://localhost:3000"
+  },
+  "morgan": {
+    "enabled": true,
+    "pattern": ":date[iso] - :method :url -> :status in :response-time[ms]ms"
+  },
+  "logger": {
+    "debugEnabled": false
+  },
+  "discovery": {
+    "enabled": false
+  }
+}
