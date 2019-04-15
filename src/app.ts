@@ -6,10 +6,14 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 
+import auth from './middlewares/auth';
 import contextMiddleware from './middlewares/context';
 import errorMiddleware from './middlewares/error';
 import discovery from './utils/discovery';
 import { Context } from './types';
+
+import login from './routes/login';
+import me from './routes/me';
 
 export default (context: Context) => {
   const app = express();
@@ -23,6 +27,11 @@ export default (context: Context) => {
   app.use(passport.initialize());
 
   const api = express.Router();
+  api.use('/login', login);
+  api.use('/me', auth('user'), me);
+  
+  app.use('/', api);
+  app.use('/api', api);
   app.use(errorMiddleware);
   discovery(api);
 

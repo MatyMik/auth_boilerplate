@@ -5,6 +5,11 @@
   "app": {
     "hostname": "http://localhost:3000"
   },
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "dogsy"
+  },
   "morgan": {
     "enabled": true,
     "pattern": ":date[iso] - :method :url -> :status in :response-time[ms]ms"
@@ -14,5 +19,11 @@
   },
   "discovery": {
     "enabled": false
+  },
+  "auth": {
+    "jwtSecret": "shh",
+    "authTokenExpiration": "30d",
+    "verificationTokenExpiration": "2h",
+    "saltGenRounds": 10
   }
 }
