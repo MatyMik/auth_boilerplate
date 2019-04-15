@@ -5,6 +5,11 @@
   "app": {
     "hostname": "APP_HOSTNAME"
   },
+  "db": {
+    "host": "DB_HOST",
+    "port": "DB_PORT",
+    "database": "DB_DATABASE"
+  },
   "morgan": {
     "enabled": "MORGAN_ENABLED",
     "pattern": "MORGAN_PATTERN"
@@ -14,5 +19,11 @@
   },
   "discovery": {
     "enabled": "DISCOVERY_ENABLED"
+  },
+  "auth": {
+    "jwtSecret": "AUTH_JWT_SECRET",
+    "authTokenExpiration": "AUTH_TOKEN_EXPIRATION",
+    "verificationTokenExpiration": "AUTH_VERIFY_TOKEN_EXPIRATION",
+    "saltGenRounds": "AUTH_GEN_ROUNDS"
   }
 }

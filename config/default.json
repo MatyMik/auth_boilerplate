@@ -21,7 +21,7 @@
     "enabled": false
   },
   "auth": {
-    "jwtSecret": "shh",
+    "jwtSecret": "cGFzc3dvcmQxc2Rmc2ZmYW9pcGRuanNuZHBkaWtsY2FkYw==",
     "authTokenExpiration": "30d",
     "verificationTokenExpiration": "2h",
     "saltGenRounds": 10
