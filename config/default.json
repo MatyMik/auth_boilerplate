@@ -1,6 +1,6 @@
 {
   "server": {
-    "port": 4000
+    "port": 5000
   },
   "app": {
     "hostname": "http://localhost:3000"
