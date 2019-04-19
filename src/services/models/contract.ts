@@ -1,5 +1,5 @@
 import { Db, ObjectID, InsertOneWriteOpResult } from "mongodb";
-import { Contract, ContractStatus } from "../../types";
+import { Contract, Status, ContractInput } from "../../types";
 
 const collection = "contracts";
 
@@ -9,15 +9,18 @@ export const findById = (db: Db) => async (id: string | Object): Promise<Contrac
   return contract;
 };
 
-export const findByUser = (db: Db) => async (id: string): Promise<Contract[]> => {
-  const contracts: Contract[] = await db.collection(collection).find({ created_by: new ObjectID(id) }).toArray();
+export const findByUser = (db: Db) => async (id: string | Object): Promise<Contract[]> => {
+  const userId = typeof id === "string" ? new ObjectID(id) : id;
+  const contracts: Contract[] = await db.collection(collection).find({ 
+    $or: [{ created_by: userId }, { assigned: userId.toString() }] 
+  }).toArray();
   return contracts;
 };
 
-export const create = (db: Db) => async (contract: any): Promise<Contract> => {
+export const create = (db: Db) => async (contract: ContractInput): Promise<Contract> => {
   const { insertedId: id }: InsertOneWriteOpResult = await db.collection(collection).insertOne({
     ...contract,
-    status: ContractStatus.NEW,
+    status: Status.NEW,
     created_at: Date.now()
   });
   

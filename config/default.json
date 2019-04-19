@@ -25,5 +25,18 @@
     "authTokenExpiration": "30d",
     "verificationTokenExpiration": "2h",
     "saltGenRounds": 10
+  },
+  "email": {
+    "endpoint": "http://rsm5gapi.dotin.hu/v1/mailers/sendmail",
+    "host": null,
+    "from": "dogsy@localhost.com",
+    "to": ["szollarp@gmail.com"],
+    "subject": "Notification from RSM Dogsy",
+    "headerInfo": {
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }
+      }
   }
 }

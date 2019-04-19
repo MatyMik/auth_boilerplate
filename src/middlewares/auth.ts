@@ -7,8 +7,8 @@ import { ContextualRequest } from '../types';
 import { Context, User } from '../types';
 import { AuthorizationError } from '../utils/errors';
 
-export const authUserByEmailAndPassword = async (context: Context, email: string, password: string): Promise<User> => {
-  const user = await context.models.user.findByEmail(email);
+export const authUserByUsernameAndPassword = async (context: Context, username: string, password: string): Promise<User> => {
+  const user = await context.models.user.findByUsername(username);
   if (!user) throw new AuthorizationError('Unknown user');
   if (user.disabled) throw new AuthorizationError('Disabled user');
   if (!user.password || user.suspended) throw new AuthorizationError('Suspended user');
@@ -32,12 +32,12 @@ passport.use(
   new LocalStrategy(
     {
       passReqToCallback: true,
-      usernameField: 'email',
+      usernameField: 'username',
       passwordField: 'password'
     },
-    async (req: ContextualRequest, email, password, done) => {
+    async (req: ContextualRequest, username, password, done) => {
       try {
-        const user = await authUserByEmailAndPassword(req.context, email, password);
+        const user = await authUserByUsernameAndPassword(req.context, username, password);
         req.context.user = user;
         done(null, user);
       } catch (error) {

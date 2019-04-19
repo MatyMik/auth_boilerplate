@@ -1,6 +1,7 @@
 import config from 'config';
 import jwt from 'jsonwebtoken';
 import { AuthorizationError, PermissionError } from '../utils/errors';
+import { ObjectID } from 'bson';
 
 export type VerificationInfo = {
   email: string;
@@ -11,7 +12,8 @@ const secret: string = config.get('auth.jwtSecret');
 const authTokenExpiration: string = config.get('auth.authTokenExpiration');
 const verificationTokenExpiration: string = config.get('auth.verificationTokenExpiration');
 
-export const createAuthToken = (userId: string): Promise<string> => {
+export const createAuthToken = (id: string | ObjectID ): Promise<string> => {
+  const userId = typeof id === "string" ? new ObjectID(id) : id;
   return new Promise((resolve, reject) =>
     jwt.sign({ userId }, secret, { expiresIn: authTokenExpiration }, (err, token) =>
       err ? reject(err) : resolve(token)

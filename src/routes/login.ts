@@ -15,8 +15,7 @@ router.post(
   '/',
   body(
     Joi.object({
-      email: Joi.string()
-        .email({ minDomainAtoms: 2 })
+      username: Joi.string()
         .required(),
       password: Joi.string()
         .base64()
