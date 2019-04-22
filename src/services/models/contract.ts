@@ -1,7 +1,13 @@
 import { Db, ObjectID, InsertOneWriteOpResult } from "mongodb";
-import { Contract, Status, ContractInput } from "../../types";
+import { Contract, Status } from "../../types";
+import { NotFoundError } from "../../utils/errors";
 
 const collection = "contracts";
+
+export const find = (db: Db) => async (): Promise<Contract[]> => {
+  const contracts: Contract[] = await db.collection(collection).find({}).toArray();
+  return contracts;
+};
 
 export const findById = (db: Db) => async (id: string | Object): Promise<Contract> => {
   const _id = typeof id === "string" ? new ObjectID(id) : id;
@@ -12,15 +18,28 @@ export const findById = (db: Db) => async (id: string | Object): Promise<Contrac
 export const findByUser = (db: Db) => async (id: string | Object): Promise<Contract[]> => {
   const userId = typeof id === "string" ? new ObjectID(id) : id;
   const contracts: Contract[] = await db.collection(collection).find({ 
-    $or: [{ created_by: userId }, { assigned: userId.toString() }] 
+    $or: [{ created_by: userId }, { "assigned._id": userId.toString() }] 
   }).toArray();
   return contracts;
 };
 
-export const create = (db: Db) => async (contract: ContractInput): Promise<Contract> => {
+export const findByUserAndId = (db: Db) => async (userId: string | Object, hash: string): Promise<Contract> => {
+  const nextUserId = typeof userId === "string" ? new ObjectID(userId) : userId;
+  const contract: Contract = await db.collection(collection).findOne({
+    $and: [ 
+      { hash }, 
+      { status: { $ne: Status.FINISHED }},
+      { $or: [{ created_by: nextUserId }, { "assigned._id": nextUserId.toString() }] } 
+    ]
+  });
+
+  if (!contract) throw new NotFoundError("Contract not found");
+  return contract;
+};
+
+export const create = (db: Db) => async (contract: any): Promise<Contract> => {
   const { insertedId: id }: InsertOneWriteOpResult = await db.collection(collection).insertOne({
     ...contract,
-    status: Status.NEW,
     created_at: Date.now()
   });
   
@@ -28,7 +47,9 @@ export const create = (db: Db) => async (contract: ContractInput): Promise<Contr
 };
 
 export default (db: Db) => ({
+  find: find(db),
   findById: findById(db),
+  findByUserAndId: findByUserAndId(db),
   findByUser: findByUser(db),
   create: create(db)
 });

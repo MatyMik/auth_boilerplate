@@ -12,5 +12,6 @@ const send = async (context: Context, to: string, message: string, subject: stri
 }
 
 export const sendNewContractCreated = async (context: Context, to: string, message: string) => {
-  await send(context, to, message, "New Contract created in RSM Dogsy");
+  await send(context, to, message, "New Contract request from RSM Dogsy");
+  await send(context, config.get('email.admin'), message, "New Contract request created in RSM Dogsy");
 }

@@ -1,5 +1,6 @@
 import { Db, ObjectID, InsertOneWriteOpResult } from "mongodb";
-import { User, Status, UserInput } from '../../types';
+import speakeasy from "speakeasy";
+import { User, Status } from '../../types';
 
 const collection = "users";
 
@@ -19,10 +20,11 @@ export const findByUsername = (db: Db) => async (username: string): Promise<User
   return user;
 };
 
-export const create = (db: Db) => async (user: UserInput): Promise<User> => {
+export const create = (db: Db) => async (user: User): Promise<User> => {
   const { insertedId: id }: InsertOneWriteOpResult = await db.collection(collection).insertOne({
     ...user,
     status: Status.NEW,
+    key: speakeasy.generateSecret(),
     created_at: Date.now()
   });
   

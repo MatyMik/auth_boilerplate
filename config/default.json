@@ -31,6 +31,7 @@
     "host": null,
     "from": "dogsy@localhost.com",
     "to": ["szollarp@gmail.com"],
+    "admin": "szollarp@gmail.com",
     "subject": "Notification from RSM Dogsy",
     "headerInfo": {
         "headers": {

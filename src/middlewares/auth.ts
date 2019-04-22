@@ -22,7 +22,7 @@ export const authUserById = async (context: Context, userId: string): Promise<Us
   const user = await context.models.user.findById(userId);
   if (!user) throw new AuthorizationError();
   if (user.disabled) throw new AuthorizationError('Disabled user');
-  if (!user.password || user.suspended) throw new AuthorizationError('Suspended user');
+  if (user.suspended) throw new AuthorizationError('Suspended user');
   delete user.password;
   return user;
 };
@@ -71,6 +71,5 @@ passport.use(
   )
 );
 
-
-export default (who: 'user', type: 'jwt' | 'local' = 'jwt') =>
+export default (who: 'user' = 'user', type: 'jwt' | 'local' = 'jwt') =>
   passport.authenticate(`${who}-${type}`, { session: false });
