@@ -29,7 +29,7 @@ export const findByUserAndId = (db: Db) => async (userId: string | Object, hash:
     $and: [ 
       { hash }, 
       { status: { $ne: Status.FINISHED }},
-      { $or: [{ created_by: nextUserId }, { "assigned._id": nextUserId.toString() }] } 
+      // { $or: [{ created_by: nextUserId }, { "assigned._id": nextUserId.toString() }] } 
     ]
   });
 
