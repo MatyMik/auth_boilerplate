@@ -28,10 +28,10 @@
   },
   "email": {
     "endpoint": "http://rsm5gapi.dotin.hu/v1/mailers/sendmail",
-    "host": null,
+    "host": "smtp.ethereal.email",
     "from": "dogsy@localhost.com",
-    "to": ["szollarp@gmail.com"],
-    "admin": "szollarp@gmail.com",
+    "to": "geovany.kilback20@ethereal.email",
+    "admin": "geovany.kilback20@ethereal.email",
     "subject": "Notification from RSM Dogsy",
     "headerInfo": {
         "headers": {

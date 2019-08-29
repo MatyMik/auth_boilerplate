@@ -111,12 +111,7 @@ export type Contract = {
   created_by: ObjectID | string | null;
   assigned?: ContractAssignedUser[];
   history?: ContractHistory[];
-  entity?: ContractEntity;
-  signatory: ContractSignatory;
-  contact?: ContractContact;
-  owner?: ContractOwner;
   status: string;
-  number_of_fields: number;
 };
 
 export type Client = {
@@ -128,6 +123,7 @@ export type Client = {
 
 export enum Status {
   NEW = "NEW",
+  IN_PROGRESS = "IN PROGRESS",
   FINISHED = "FINISHED"
 };
 
