@@ -13,5 +13,5 @@ ADD . .
 #RUN npm test
 RUN npm run build
 
-EXPOSE 8000
+EXPOSE 9000
 CMD ["npm", "start"]

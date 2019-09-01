@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "node .",
-    "build": "rimraf lib",
+    "build": "rimraf lib && tsc",
     "dev": "rimraf lib && tsc-watch --onSuccess \"node .\"",
     "test": "jest"
   },
