@@ -1,5 +1,5 @@
 # First build
-FROM node:latest AS build
+FROM node:latest
 
 WORKDIR /app
 ARG NPM_TOKEN
