@@ -13,11 +13,5 @@ ADD . .
 #RUN npm test
 RUN npm run build
 
-# Second build
-FROM node:latest
-WORKDIR /app
-ENV NODE_ENV production
-EXPOSE 4000
-COPY --from=build /app /app
-
+EXPOSE 8000
 CMD ["npm", "start"]
