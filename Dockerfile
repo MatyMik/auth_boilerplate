@@ -16,7 +16,7 @@ ADD . .
 RUN npm run build 
 
 # Second build
-FROM node:10.16.3-alpines
+FROM node:10.16.3-alpine
 ENV NODE_ENV production
 WORKDIR /app
 EXPOSE 9000
