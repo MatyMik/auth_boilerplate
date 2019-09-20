@@ -1,4 +1,5 @@
 import config from 'config';
+import crypto from 'crypto';
 import { Router, Response } from 'express';
 import { body } from '../middlewares/validate';
 import { ContextualRequest, ContractType  } from '../types';
@@ -12,9 +13,11 @@ router.post('/', body(ContractSchema), async (req: ContextualRequest, res: Respo
     defaultCompanyContract() : 
     defaultPrivatePersonContract();
 
+  const key = crypto.randomBytes(64).toString('hex');
   const nextContract = {
     ...contract,
     ...req.body,
+    key,
     history: [
       { 
         name: requester_name,
@@ -32,7 +35,7 @@ router.post('/', body(ContractSchema), async (req: ContextualRequest, res: Respo
   }
 
   const result = await req.context.models.contract.create(nextContract);
-  const message = `${config.get('app.hostname')}/${result.hash}`;
+  const message = `${config.get('app.hostname')}/contract/${result.hash}?t=${key}`;
   req.context.email.sendNewContractCreated(req.context, contact_email, message);
 
   res.json({ success: result._id });
