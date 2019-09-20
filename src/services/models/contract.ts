@@ -37,6 +37,18 @@ export const findByUserAndId = (db: Db) => async (userId: string | Object, hash:
   return contract;
 };
 
+export const findByUserAndHash= (db: Db) => async (userId: string | Object, hash: string): Promise<Contract> => {
+  const nextUserId = typeof userId === "string" ? new ObjectID(userId) : userId;
+  const contract: Contract = await db.collection(collection).findOne({
+    $and: [ 
+      { hash }
+    ]
+  });
+
+  if (!contract) throw new NotFoundError("Contract not found");
+  return contract;
+};
+
 export const create = (db: Db) => async (contract: any): Promise<Contract> => {
   const { insertedId: id }: InsertOneWriteOpResult = await db.collection(collection).insertOne({
     ...contract,
@@ -46,10 +58,18 @@ export const create = (db: Db) => async (contract: any): Promise<Contract> => {
   return await findById(db)(id);
 };
 
+export const update = (db: Db) => async (userId: string | Object, hash: string, set: any): Promise<Contract> => {
+  const nextUserId = typeof userId === "string" ? new ObjectID(userId) : userId;
+  await db.collection(collection).updateOne({ hash }, { $set: set });
+  return await findByUserAndHash(db)(nextUserId, hash);
+};
+
 export default (db: Db) => ({
   find: find(db),
   findById: findById(db),
   findByUserAndId: findByUserAndId(db),
+  findByUserAndHash: findByUserAndHash(db),
   findByUser: findByUser(db),
-  create: create(db)
+  create: create(db),
+  update: update(db)
 });

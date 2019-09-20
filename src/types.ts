@@ -112,6 +112,8 @@ export type Contract = {
   assigned?: ContractAssignedUser[];
   history?: ContractHistory[];
   status: string;
+  sections: any;
+  validation: any;
 };
 
 export type Client = {

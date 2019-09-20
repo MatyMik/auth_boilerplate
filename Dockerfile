@@ -1,17 +1,26 @@
 # First build
-FROM node:latest
+FROM node:10.16.3-alpine AS build
+
+RUN apk --no-cache add --virtual native-deps \
+  g++ gcc libgcc libstdc++ linux-headers autoconf automake make nasm python git && \
+  npm install --quiet node-gyp -g
+  
+RUN npm install -g node-gyp typescript
 
 WORKDIR /app
-ARG NPM_TOKEN
-
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 
-RUN npm ci
+RUN npm i
 ADD . .
+RUN npm run build 
 
-#RUN npm test
-RUN npm run build
-
+# Second build
+FROM node:10.16.3-alpines
+ENV NODE_ENV production
+WORKDIR /app
 EXPOSE 9000
-CMD ["npm", "start"]
+COPY --from=build /app /app
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait /wait
+RUN chmod +x /wait
+CMD /wait && npm start

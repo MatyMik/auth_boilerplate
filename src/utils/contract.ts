@@ -7,7 +7,9 @@ export const defaultPrivatePersonContract = (created_by: string | null = null): 
   created_by,
   type: ContractType.PRIVATE_PERSON,
   project_name: "",
-  status: Status.NEW
+  status: Status.NEW,
+  sections: {},
+  validation: {}
 });
 
 export const defaultCompanyContract = (created_by: string | null = null): Contract => ({
@@ -17,4 +19,6 @@ export const defaultCompanyContract = (created_by: string | null = null): Contra
   type: ContractType.COMPANY,
   project_name: "",
   status: Status.NEW,
+  sections: {},
+  validation: {}
 });

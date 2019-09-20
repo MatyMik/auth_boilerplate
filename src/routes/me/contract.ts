@@ -1,20 +1,31 @@
 import { Router, Response } from 'express';
 import Joi from 'joi';
 import { param } from '../../middlewares/validate';
-import { ContextualRequest  } from '../../types';
+import { pickBaseContractProperties } from '../../utils/pick';
+import { ContextualRequest, Contract  } from '../../types';
 
 const router = Router();
 
 router.get('/', async (req: ContextualRequest, res: Response) => {
-  const result = await req.context.models.contract.find();
-  res.json(result);
+  const results = await req.context.models.contract.find();
+  const json = results && results.map(pickBaseContractProperties);
+  res.json(json || []);
 });
 
-router.get('/:contractId', 
-  param('contractId', Joi.string()),
+router.get('/:hash', 
+  param('hash', Joi.string()),
   async (req: ContextualRequest, res: Response) => {
-    const contractId = req.params.contractId;
-    const result = await req.context.models.contract.findByUserAndId(req.context.user._id, contractId);
+    const hash = req.params.hash;
+    const result = await req.context.models.contract.findByUserAndHash(req.context.user._id, hash);
+    res.json(result);
+});
+
+router.put('/:hash', 
+  param('hash', Joi.string()),
+  async (req: ContextualRequest, res: Response) => {
+    const hash = req.params.hash;
+    const body = req.body;
+    const result = await req.context.models.contract.update(req.context.user._id, hash, body);
     res.json(result);
 });
 
