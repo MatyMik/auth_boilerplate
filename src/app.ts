@@ -33,7 +33,7 @@ export default (context: Context) => {
 
   const api = express.Router();
   api.use('/login', login);
-  api.use('/contact-request', contactRequest);
+  api.use('/contact-request', auth('user'), contactRequest);
   api.use('/me', auth('user'), me);
 
   app.use('/', api);
