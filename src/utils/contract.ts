@@ -9,7 +9,12 @@ export const defaultPrivatePersonContract = (created_by: string | null = null): 
   project_name: "",
   status: Status.NEW,
   sections: {},
-  validation: {}
+  validation: {},
+  contact_email: "",
+  contact_name: "",
+  key: "",
+  token: "",
+  refresh: ""
 });
 
 export const defaultCompanyContract = (created_by: string | null = null): Contract => ({
@@ -20,5 +25,10 @@ export const defaultCompanyContract = (created_by: string | null = null): Contra
   project_name: "",
   status: Status.NEW,
   sections: {},
-  validation: {}
+  validation: {},
+  contact_email: "",
+  contact_name: "",
+  key: "",
+  token: "",
+  refresh: ""
 });

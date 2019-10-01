@@ -114,6 +114,11 @@ export type Contract = {
   status: string;
   sections: any;
   validation: any;
+  contact_email: string;
+  contact_name: string;
+  key: string;
+  token: string;
+  refresh: string;
 };
 
 export type Client = {

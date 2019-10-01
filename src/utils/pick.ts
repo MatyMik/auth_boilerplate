@@ -1,5 +1,5 @@
 import {Contract} from '../types';
 export const pickBaseContractProperties = (contract : Contract) => {
-  const { sections, validation, ...base } = contract;
+  const { sections, validation, key, token, history, refresh, ...base } = contract;
   return base;
 }

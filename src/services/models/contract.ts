@@ -64,6 +64,10 @@ export const update = (db: Db) => async (userId: string | Object, hash: string, 
   return await findByUserAndHash(db)(nextUserId, hash);
 };
 
+export const addHistory = (db: Db) => async (hash: string, history: any) => {
+  await db.collection(collection).updateOne({ hash }, { $push: { history } })
+};
+
 export default (db: Db) => ({
   find: find(db),
   findById: findById(db),
@@ -71,5 +75,6 @@ export default (db: Db) => ({
   findByUserAndHash: findByUserAndHash(db),
   findByUser: findByUser(db),
   create: create(db),
-  update: update(db)
+  update: update(db),
+  addHistory: addHistory(db)
 });

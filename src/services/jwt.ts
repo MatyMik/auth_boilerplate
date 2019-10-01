@@ -60,3 +60,12 @@ export const resolveConfirmationToken = (token: string): Promise<number> => {
     )
   );
 };
+
+export const createRefreshToken = (hash: string): Promise<string> => {
+  return new Promise((resolve, reject) =>
+    jwt.sign({ hash }, secret, { expiresIn: '1h' }, (err, token) =>
+      err ? reject(err) : resolve(token)
+    )
+  );
+};
+

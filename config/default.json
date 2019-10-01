@@ -28,16 +28,16 @@
   },
   "email": {
     "endpoint": "http://rsm5gapi.dotin.hu/v1/mailers/sendmail",
-    "host": "smtp.ethereal.email",
+    "host": null,
+    "port": 587,
     "from": "dogsy@localhost.com",
-    "to": "geovany.kilback20@ethereal.email",
-    "admin": "geovany.kilback20@ethereal.email",
-    "subject": "Notification from RSM Dogsy",
-    "headerInfo": {
-        "headers": {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        }
+    "to": "szollarp@gmail.com",
+    "admin": "szollarp@gmail.com",
+    "header": {
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       }
+    }
   }
 }
