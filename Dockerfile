@@ -2,7 +2,7 @@
 FROM node:10.16.3-alpine AS build
 
 RUN apk --no-cache add --virtual native-deps \
-  g++ gcc libgcc libstdc++ linux-headers autoconf automake make nasm python git busybox-extras && \
+  g++ gcc libgcc libstdc++ linux-headers autoconf automake make nasm python git && \
   npm install --quiet node-gyp -g
   
 RUN npm install -g node-gyp typescript
@@ -17,6 +17,7 @@ RUN npm run build
 
 # Second build
 FROM node:10.16.3-alpine
+RUN apk add busybox-extras
 ENV NODE_ENV production
 WORKDIR /app
 EXPOSE 9000
