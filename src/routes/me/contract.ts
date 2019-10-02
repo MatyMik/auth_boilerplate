@@ -21,7 +21,6 @@ router.get('/:hash',
     const hash = req.params.hash;
     const result = await req.context.models.contract.findByUserAndHash(req.context.user._id, hash);
     delete result.token;
-    delete result.key;
     delete result.refresh;
     res.json(result);
 });
