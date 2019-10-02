@@ -356,7 +356,7 @@ export default (link: string, email: string) => {
 
 																		<p>Mostantól már csak ezen linken keresztül tudja elérni az adatlapot. Az új link létrehozásával a korábban kiadott elérést visszavontuk. Kérjük, hogy amint teheti nyissa meg az űrlapot és kitöltve küldje vissza hozzánk.</p>
 
-																		<p>Amennyiben a fentiekkel kapcsolatban kérdése merülne fel, úgy a [pmt@rsm.hu] email címen kaphat további felvilágosítást.</p>
+																		<p>Amennyiben a fentiekkel kapcsolatban kérdése merülne fel, úgy a <a href="mailto:${email}">${email}</a> email címen kaphat további felvilágosítást.</p>
 
 																		<p>Együttműködésüket köszönjük,</p>
 
@@ -372,7 +372,7 @@ export default (link: string, email: string) => {
 
 																		<p>From now on you can access it only using the new link above. The previously created link has been revoked permanently. As soon as you can, pleasee open the link and fill out the form.</p>
 
-																		<p>To obtain any additional information related to this request, please contact [pmt@rsm.hu].</p>
+																		<p>To obtain any additional information related to this request, please contact <a href="mailto:${email}">${email}</a>.</p>
 
 																		<p>Thank you for your cooperation, </p>
 
