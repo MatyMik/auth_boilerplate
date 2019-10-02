@@ -3,7 +3,10 @@
     "port": 9000
   },
   "app": {
-    "hostname": "http://localhost:5000"
+    "hostname": "http://localhost:5000",
+    "contract": {
+      "hostname": "http://localhost:3000"
+    }
   },
   "db": {
     "host": "localhost",

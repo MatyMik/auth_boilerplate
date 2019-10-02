@@ -3,7 +3,10 @@
     "port": "SERVER_PORT"
   },
   "app": {
-    "hostname": "APP_HOSTNAME"
+    "hostname": "APP_HOSTNAME",
+    "contract": {
+      "hostname": "APP_CONTRACT_HOSTNAME"
+    }
   },
   "db": {
     "host": "DB_HOST",

@@ -47,7 +47,7 @@ router.get('/:hash/resend-invitation',
   async (req: ContextualRequest, res: Response) => {
     const hash = req.params.hash;
     const contract = await req.context.models.contract.findByUserAndHash(req.context.user._id, hash);
-    const message = mailTemplate(`${config.get('app.hostname')}/contract/${contract.hash}?t=${contract.key}`, config.get('email.from'));
+    const message = mailTemplate(`${config.get('app.contract.hostname')}/contract/${contract.hash}?t=${contract.key}`, config.get('email.from'));
     req.context.email.sendNewContractCreated(req.context, contract.contact_email, message);
     res.json({ok: true});
 });
@@ -62,7 +62,7 @@ router.get('/:hash/send-new-token-request',
     await req.context.models.contract.update(req.context.user._id, hash, { refresh: nextRefreshToke });
     await req.context.models.contract.addHistory(hash, { action: "SET_REFRESH_TOKEN_BY_ADMIN", at: Date.now(), userId: req.context.user._id })
     
-    const message = mailTemplateRequestNewToken(`${config.get('app.hostname')}/refresh-token/${contract.hash}?t=${contract.key}&r=${nextRefreshToke}`, config.get('email.from'))
+    const message = mailTemplateRequestNewToken(`${config.get('app.contract.hostname')}/refresh-token/${contract.hash}?t=${contract.key}&r=${nextRefreshToke}`, config.get('email.from'))
     await req.context.email.sendNewRefreshToken(req.context, contract.contact_email, message)
     res.json({ok: true});
 });
