@@ -1,4 +1,4 @@
-export default (link: string) => {
+export default (link: string, email: string) => {
 	return `<!doctype html>
 		<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 			<head>
@@ -362,7 +362,7 @@ export default (link: string) => {
 
 																	<p>Erre figyelemmel az ügyfél azonosítás elvégzésével egyidejűleg az RSM Hungary Zrt. előkészíti a felek közötti megbízási szerződés módosítását,  amely alapján a 2019.v001.01 verziószámú ÁSZF http://aszf.rsm.hu/2019.v001.01/hun és az Egyedi Megállapodás rendelkezései a korábbi keretszerződés rendelkezései helyébe lépnek.  Az azonosítási adatlap és tényleges tulajdonosi nyilatkozat RSM Hungary Zrt-hez történő visszaérkezését követően az erre vonatkozó megállapodás tervezetét is megküldjük.</p>
 
-																	<p>Amennyiben a fentiekkel kapcsolatos kérdésük merülne fel, úgy a pmt@rsm.hu email címen kaphatnak további felvilágosítást.</p>
+																	<p>Amennyiben a fentiekkel kapcsolatos kérdésük merülne fel, úgy a <a href="mailto:${email}">${email}</a> email címen kaphatnak további felvilágosítást.</p>
 
 																	<p>Együttműködésüket köszönjük,</p>
 
@@ -384,9 +384,11 @@ export default (link: string) => {
 
 																	<p>Given these circumstances, RSM Hungary Zrt. prepares the amendment of the effective Individual Agreement. The modified GTCC with the version number of 2019.v001.01 (http://aszf.rsm.hu/2019.v001.01/hun) and the provisions of the Individual Agreement will supersede the former arrangement between the Parties.  Following the receipt of the identification form by RSM Hungary Zrt., and the declaration of the beneficial owner, the draft of the modified contract will be delivered as well.</p>
 
-																	<p>To obtain any additional information related to this request, please contact penzugy@rsm.hu.</p>
+																	<p>To obtain any additional information related to this request, please contact <a href="mailto:${email}">${email}</a>.</p>
 
-																	<p> Thank you for your cooperation</p>
+																	<p>Thank you for your cooperation,</p>
+
+																	<p>RSM Hungary Tax and Financial Advisory Services Plc.</p>
 																	</td>
 																</tr>
 															  </tbody>

@@ -1,4 +1,4 @@
-export default (link: string) => {
+export default (link: string, email: string) => {
 	return `<!doctype html>
 		<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 			<head>
@@ -348,7 +348,35 @@ export default (link: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																	<td class="mcnTextBlockInner" style="color: #57585b; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 14px 10px;" valign="top">
-																	${link}
+																		<p>Tisztelt Ügyfelünk!</p>
+
+																		<p>Az online azonosító adatlapunk kitöltéséhez egy új privát linket generáltunk Önnek.</p>
+
+																		<p><a href="${link}" target="_blank">[Privát link]</a></p>
+
+																		<p>Mostantól már csak ezen linken keresztül tudja elérni az adatlapot. Az új link létrehozásával a korábban kiadott elérést visszavontuk. Kérjük, hogy amint teheti nyissa meg az űrlapot és kitöltve küldje vissza hozzánk.</p>
+
+																		<p>Amennyiben a fentiekkel kapcsolatban kérdése merülne fel, úgy a [pmt@rsm.hu] email címen kaphat további felvilágosítást.</p>
+
+																		<p>Együttműködésüket köszönjük,</p>
+
+																		<p>RSM Hungary Adótanácsadó és Pénzügyi Szolgáltató Zrt.</p>
+
+																		<p>-----------------------------------------------------------------------------</p>
+
+																		<p>Dear Client,</p>
+
+																		<p>We have generated a new private link for you to complete our online ID form.</p>
+
+																		<p><a href="${link}" target="_blank">[Private link]</a></p>
+
+																		<p>From now on you can access it only using the new link above. The previously created link has been revoked permanently. As soon as you can, pleasee open the link and fill out the form.</p>
+
+																		<p>To obtain any additional information related to this request, please contact [pmt@rsm.hu].</p>
+
+																		<p>Thank you for your cooperation, </p>
+
+																		<p>RSM Hungary Tax and Financial Advisory Services Plc.</p>
 																	</td>
 																</tr>
 															  </tbody>
