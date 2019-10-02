@@ -63,7 +63,7 @@ router.get('/:hash/send-new-token-request',
     await req.context.models.contract.addHistory(hash, { action: "SET_REFRESH_TOKEN_BY_ADMIN", at: Date.now(), userId: req.context.user._id })
     
     const message = mailTemplateRequestNewToken(`${config.get('app.hostname')}/refresh-token/${contract.hash}?t=${contract.key}&r=${nextRefreshToke}`)
-    await req.context.email.sendNewRefreshToken(req.context, message)
+    await req.context.email.sendNewRefreshToken(req.context, contract.contact_email, message)
     res.json({ok: true});
 });
 
