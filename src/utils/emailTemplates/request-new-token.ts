@@ -350,32 +350,28 @@ export default (link: string, email: string) => {
 																	<td class="mcnTextBlockInner" style="color: #57585b; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 14px 10px;" valign="top">
 																		<p>Tisztelt Ügyfelünk!</p>
 
-																		<p>Az online azonosító adatlapunk kitöltéséhez egy új privát linket generáltunk Önnek.</p>
-
-																		<p><a href="${link}" target="_blank">[Privát link]</a></p>
-
-																		<p>Mostantól már csak ezen linken keresztül tudja elérni az adatlapot. Az új link létrehozásával a korábban kiadott elérést visszavontuk. Kérjük, hogy amint teheti nyissa meg az űrlapot és kitöltve küldje vissza hozzánk.</p>
-
-																		<p>Amennyiben a fentiekkel kapcsolatban kérdése merülne fel, úgy a <a href="mailto:${email}">${email}</a> email címen kaphat további felvilágosítást.</p>
-
+																		<p>Az online azonosító adatlapunk kitöltéséhez egy új link került igényelésre. Az igénylés jóváhagyásához és az ahhoz tartozó új privát link létrehozásához, majd kiküldéséhez kattintson az alábbi linken.</p>
+																		
+																		<p><a href="${link}" target="_blank">[KATTINTSON IDE]</a></p>
+																		
+																		<p>Amennyiben az igénylést nem Ön küldte vagy nem tud annak feladatójáról, ne kattintson a linkre. Ebben az esetben kérjük értesítse adminisztrációs csapatunkat a <a href="mailto:${email}">${email}</a> email címen.</p>
+																		
 																		<p>Együttműködésüket köszönjük,</p>
-
+																		
 																		<p>RSM Hungary Adótanácsadó és Pénzügyi Szolgáltató Zrt.</p>
-
+																		
 																		<p>-----------------------------------------------------------------------------</p>
-
+																		
 																		<p>Dear Client,</p>
+																		
+																		<p>A new link has been requested to complete our online ID form. Please click the link below to approve this request and to send a new generated private link for you.</p>
+																		
+																		<p><a href="${link}" target="_blank">[CLICK HERE]</a></p>
 
-																		<p>We have generated a new private link for you to complete our online ID form.</p>
-
-																		<p><a href="${link}" target="_blank">[Private link]</a></p>
-
-																		<p>From now on you can access it only using the new link above. The previously created link has been revoked permanently. As soon as you can, pleasee open the link and fill out the form.</p>
-
-																		<p>To obtain any additional information related to this request, please contact <a href="mailto:${email}">${email}</a>.</p>
-
+																		<p>If you did not submit any request to us for this purpose, please do not click on the link and please contact our administration team at <a href="mailto:${email}">${email}</a> immediately.</p>
+																		
 																		<p>Thank you for your cooperation, </p>
-
+																		
 																		<p>RSM Hungary Tax and Financial Advisory Services Plc.</p>
 																	</td>
 																</tr>
