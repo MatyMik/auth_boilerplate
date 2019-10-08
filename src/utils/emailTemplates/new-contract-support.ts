@@ -75,7 +75,7 @@ export default (link: string, email: string) => {
 				font-weight: inherit !important;
 				line-height: inherit !important;
 				}.templateContainer {
-				max-width: 600px !important;
+				max-width: 840px !important;
 				}a.mcnButton {
 				display: block;
 				text-transform: uppercase;
@@ -232,7 +232,7 @@ export default (link: string, email: string) => {
 				font-weight: normal;
 				text-decoration: underline;
 				}@media only screen and (min-width:768px){.templateContainer {
-				width: 600px !important;
+				width: 840px !important;
 				}}@media only screen and (max-width: 480px){body,table,td,p,a,li,blockquote {
 				-webkit-text-size-adjust: none !important;
 				}}@media only screen and (max-width: 480px){body {
@@ -312,7 +312,7 @@ export default (link: string, email: string) => {
 							  <tbody>
 								<tr>
 									<td id="templateHeader" valign="top" align="center">
-									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 									  <table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 										<tbody>
 											<tr>
@@ -339,7 +339,7 @@ export default (link: string, email: string) => {
 										<tbody>
 											<tr>
 											  <td id="baseTextBlock" valign="top" align="center">
-											  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+											  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 												<table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
 													<tbody>
 													  <tr>
@@ -348,11 +348,12 @@ export default (link: string, email: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																	<td class="mcnTextBlockInner" style="color: #57585b; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 14px 10px;" valign="top">
+																	<p><strong>please scroll down for the English version</strong></p>
 																	<p>Tisztelt Ügyfelünk,</p>
 
 																	<p>a pénzmosás és a terrorizmus finanszírozása megelőzéséről és megakadályozásáról szóló 2017. évi LIII. törvény („Pmt.”) alapján az RSM Hungary Zrt.,  mint a Pmt. hatálya alá tartozó szolgáltató 2019. október 31-ét követően köteles az ügyleti megbízás teljesítését megtagadni a Pmt. alapján,  ha az ügyféllel 2017. június 26. előtt létesített üzleti kapcsolatot és az ügyfél vonatkozásában az ügyfél-átvilágítási intézkedéseket  2019. október 31-ig nem végezte el, és az ügyfél vonatkozásában az ügyfél-átvilágítás eredményei 2019. október 31-ig nem állnak teljes körűen rendelkezésére.</p>
 
-																	<p>Tekintettel arra, hogy az Önök, mint megbízó vonatkozásában nem állnak teljes körűen rendelkezésre az ügyfél-átvilágítás eredményei,  így kérjük töltse ki az online azonosító adatlapunkat, különös tekintettel az azon szereplő tényleges tulajdonosi nyilatkozatot.</p>
+																	<p>Tekintettel arra, hogy az Önök, mint megbízó vonatkozásában nem állnak teljes körűen rendelkezésre az ügyfél-átvilágítás eredményei,  így kérjük töltse ki az online azonosító adatlapot, különös tekintettel az azon szereplő tényleges tulajdonosi nyilatkozatot.</p>
 
 																	<p><a href="${link}" target="_blank">[Kitöltöm az online azonosító adatlapot]</a></p>
 
@@ -382,7 +383,7 @@ export default (link: string, email: string) => {
 
 																	<p>As the Regulation (EU) No 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the  free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation) came in effect on 15th May 2018, an update is also required for the Individual Agreement between the Parties.</p>
 
-																	<p>Given these circumstances, RSM Hungary Zrt. prepares the amendment of the effective Individual Agreement. The modified GTCC with the version number of 2019.v001.01 (http://aszf.rsm.hu/2019.v001.01/hun) and the provisions of the Individual Agreement will supersede the former arrangement between the Parties.  Following the receipt of the identification form by RSM Hungary Zrt., and the declaration of the beneficial owner, the draft of the modified contract will be delivered as well.</p>
+																	<p>Given these circumstances, RSM Hungary Zrt. prepares the amendment of the effective Individual Agreement. The modified GTCC with the version number of 2019.v001.01 (http://aszf.rsm.hu/2019.v001.01/eng) and the provisions of the Individual Agreement will supersede the former arrangement between the Parties.  Following the receipt of the identification form by RSM Hungary Zrt., and the declaration of the beneficial owner, the draft of the modified contract will be delivered as well.</p>
 
 																	<p>To obtain any additional information related to this request, please contact <a href="mailto:${email}">${email}</a>.</p>
 
@@ -406,7 +407,7 @@ export default (link: string, email: string) => {
 
 								<tr>
 								    <td id="templatePreFooterLegal" valign="top" align="center">
-									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 									  <table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 										<tbody>
 										    <tr>
@@ -419,7 +420,7 @@ export default (link: string, email: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																    <td class="mcnTextBlockInner" style="padding-top:0px;" valign="top">
-																    <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="600" style="width:600px;"><![endif]-->
+																    <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="840" style="width:840px;"><![endif]-->
 																	  <table style="max-width:100%; min-width:100%;" class="mcnTextContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
 																		<tbody>
 																		    <tr>
@@ -454,7 +455,7 @@ export default (link: string, email: string) => {
 
 								<tr>
 									<td id="templateFooter" valign="top" align="center">
-									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 									  <table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 										<tbody>
 											<tr>
@@ -467,7 +468,7 @@ export default (link: string, email: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																	<td class="mcnTextBlockInner" style="padding-top:0px;" valign="top">
-																	  <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="600" style="width:600px;"><![endif]-->
+																	  <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="840" style="width:840px;"><![endif]-->
 																	  <table style="max-width:100%; min-width:100%;" class="mcnTextContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
 																		<tbody>
 																			<tr>

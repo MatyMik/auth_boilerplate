@@ -75,7 +75,7 @@ export default (link: string, email: string) => {
 				font-weight: inherit !important;
 				line-height: inherit !important;
 				}.templateContainer {
-				max-width: 600px !important;
+				max-width: 840px !important;
 				}a.mcnButton {
 				display: block;
 				text-transform: uppercase;
@@ -232,7 +232,7 @@ export default (link: string, email: string) => {
 				font-weight: normal;
 				text-decoration: underline;
 				}@media only screen and (min-width:768px){.templateContainer {
-				width: 600px !important;
+				width: 840px !important;
 				}}@media only screen and (max-width: 480px){body,table,td,p,a,li,blockquote {
 				-webkit-text-size-adjust: none !important;
 				}}@media only screen and (max-width: 480px){body {
@@ -312,7 +312,7 @@ export default (link: string, email: string) => {
 							  <tbody>
 								<tr>
 									<td id="templateHeader" valign="top" align="center">
-									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 									  <table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 										<tbody>
 											<tr>
@@ -339,7 +339,7 @@ export default (link: string, email: string) => {
 										<tbody>
 											<tr>
 											  <td id="baseTextBlock" valign="top" align="center">
-											  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+											  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 												<table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
 													<tbody>
 													  <tr>
@@ -348,9 +348,10 @@ export default (link: string, email: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																	<td class="mcnTextBlockInner" style="color: #57585b; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 14px 10px;" valign="top">
+																		<p><strong>please scroll down for the English version</strong></p>
 																		<p>Tisztelt Ügyfelünk!</p>
 
-																		<p>Az online azonosító adatlapunk kitöltéséhez egy új link került igényelésre. Az igénylés jóváhagyásához és az ahhoz tartozó új privát link létrehozásához, majd kiküldéséhez kattintson az alábbi linken.</p>
+																		<p>Az online azonosító adatlap kitöltéséhez egy új link került igényelésre. Az igénylés jóváhagyásához és az ahhoz tartozó új privát link létrehozásához, majd kiküldéséhez kattintson az alábbi linken.</p>
 																		
 																		<p><a href="${link}" target="_blank">[KATTINTSON IDE]</a></p>
 																		
@@ -364,7 +365,7 @@ export default (link: string, email: string) => {
 																		
 																		<p>Dear Client,</p>
 																		
-																		<p>A new link has been requested to complete our online ID form. Please click the link below to approve this request and to send a new generated private link for you.</p>
+																		<p>A new link has been requested to complete the online ID form. Please click the link below to approve this request and to send a new generated private link for you.</p>
 																		
 																		<p><a href="${link}" target="_blank">[CLICK HERE]</a></p>
 
@@ -390,7 +391,7 @@ export default (link: string, email: string) => {
 
 								<tr>
 								    <td id="templatePreFooterLegal" valign="top" align="center">
-									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 									  <table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 										<tbody>
 										    <tr>
@@ -403,7 +404,7 @@ export default (link: string, email: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																    <td class="mcnTextBlockInner" style="padding-top:0px;" valign="top">
-																    <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="600" style="width:600px;"><![endif]-->
+																    <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="840" style="width:840px;"><![endif]-->
 																	  <table style="max-width:100%; min-width:100%;" class="mcnTextContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
 																		<tbody>
 																		    <tr>
@@ -438,7 +439,7 @@ export default (link: string, email: string) => {
 
 								<tr>
 									<td id="templateFooter" valign="top" align="center">
-									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"><tr><td align="center" valign="top" width="600" style="width:600px;"><![endif]-->
+									  <!--[if gte mso 9]><table align="center" border="0" cellspacing="0" cellpadding="0" width="840" style="width:840px;"><tr><td align="center" valign="top" width="840" style="width:840px;"><![endif]-->
 									  <table class="templateContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
 										<tbody>
 											<tr>
@@ -451,7 +452,7 @@ export default (link: string, email: string) => {
 															  <tbody class="mcnTextBlockOuter">
 																<tr>
 																	<td class="mcnTextBlockInner" style="padding-top:0px;" valign="top">
-																	  <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="600" style="width:600px;"><![endif]-->
+																	  <!--[if mso]><table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;"><tr><![endif]--><!--[if mso]><td valign="top" width="840" style="width:840px;"><![endif]-->
 																	  <table style="max-width:100%; min-width:100%;" class="mcnTextContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
 																		<tbody>
 																			<tr>

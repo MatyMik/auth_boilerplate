@@ -37,7 +37,7 @@ router.post('/', body(ContractSchema), async (req: ContextualRequest, res: Respo
 
   const result = await req.context.models.contract.create(nextContract);
   const message = mailTemplate(`${config.get('app.contract.hostname')}/contract/${result.hash}?t=${key}`, config.get('email.from'));
-  req.context.email.sendNewContractCreated(req.context, contact_email, message);
+  req.context.email.sendNewContractCreated(req.context, contact_email, message, contract.project_name);
 
   res.json({ success: result._id });
 });

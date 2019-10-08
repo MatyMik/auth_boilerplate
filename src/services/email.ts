@@ -30,11 +30,11 @@ const send = async (context: Context, to: string, message: string, subject: stri
   } catch(error) { throw new RequestError(error.toString()) }
 }
 
-export const sendNewContractCreated = async (context: Context, to: string, message: string) => {
-  await send(context, to, message, "New Contract request from RSM Dogsy");
-  await send(context, config.get('email.admin'), message, "New Contract request created in RSM Dogsy");
+export const sendNewContractCreated = async (context: Context, to: string, message: string, title: string) => {
+  await send(context, to, message, `New Contract request from RSM Dogsy - ${title}`);
+  await send(context, config.get('email.admin'), message, `New Contract request created in RSM Dogsy - ${title}`);
 }
 
-export const sendNewRefreshToken = async (context: Context, to: string, message: string) => {
-  await send(context, to, message, "New permission request RSM Dogsy");
+export const sendNewRefreshToken = async (context: Context, to: string, message: string, title: string) => {
+  await send(context, to, message, `New permission request RSM Dogsy - ${title}`);
 }
