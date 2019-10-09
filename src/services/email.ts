@@ -31,10 +31,15 @@ const send = async (context: Context, to: string, message: string, subject: stri
 }
 
 export const sendNewContractCreated = async (context: Context, to: string, message: string, title: string) => {
-  await send(context, to, message, `New Contract request from RSM Dogsy - ${title}`);
-  await send(context, config.get('email.admin'), message, `New Contract request created in RSM Dogsy - ${title}`);
+  await send(context, to, message, `RSM Online ID form – RSM Online azonosító adatlap - ${title}`);
+  await send(context, config.get('email.admin'), message, `RSM Online ID form – RSM Online azonosító adatlap - ${title}`);
 }
 
 export const sendNewRefreshToken = async (context: Context, to: string, message: string, title: string) => {
-  await send(context, to, message, `New permission request RSM Dogsy - ${title}`);
+  await send(context, to, message, `Request for new token – Új token igénylése - ${title}`);
+}
+
+export const sendReopenContract = async (context: Context, to: string, message: string, title: string) => {
+  await send(context, to, message, `RSM Online ID form (reopened) - Online azonosító adatlap (újranyitva) - ${title}`);
+  await send(context, config.get('email.admin'), message, `RSM Online ID form (reopened) - Online azonosító adatlap (újranyitva) - ${title}`);
 }

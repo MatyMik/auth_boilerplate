@@ -6,6 +6,7 @@ import { pickBaseContractProperties } from '../../utils/pick';
 import { ContextualRequest, Contract  } from '../../types';
 import mailTemplate from '../../utils/emailTemplates/new-contract-customer';
 import mailTemplateRequestNewToken from '../../utils/emailTemplates/request-new-token';
+import mailTemplateReopenContract from '../../utils/emailTemplates/reopen-contract'
 
 const router = Router();
 
@@ -30,8 +31,12 @@ router.put('/:hash',
   async (req: ContextualRequest, res: Response) => {
     const hash = req.params.hash;
     const body = req.body;
-    const result = await req.context.models.contract.update(req.context.user._id, hash, body);
-    res.json(result);
+    const nextContract = await req.context.models.contract.update(req.context.user._id, hash, body);
+    if (!!req.body.reopened && req.body.reopened === true) {
+      const message = mailTemplateReopenContract(`${config.get('app.contract.hostname')}/contract/${nextContract.hash}?t=${nextContract.key}`, config.get('email.from'))
+      await req.context.email.sendReopenContract(req.context, nextContract.contact_email, message, nextContract.project_name)
+    }
+    res.json(nextContract);
 });
 
 router.put('/:hash/add-event', 
