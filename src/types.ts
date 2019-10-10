@@ -130,7 +130,7 @@ export type Client = {
 
 export enum Status {
   NEW = "NEW",
-  IN_PROGRESS = "IN PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS",
   FINISHED = "FINISHED"
 };
 
