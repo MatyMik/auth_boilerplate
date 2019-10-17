@@ -32,7 +32,6 @@ const send = async (context: Context, to: string, message: string, subject: stri
 
 export const sendNewContractCreated = async (context: Context, to: string, message: string, title: string) => {
   await send(context, to, message, `RSM Online ID form – RSM Online azonosító adatlap - ${title}`);
-  await send(context, config.get('email.admin'), message, `RSM Online ID form – RSM Online azonosító adatlap - ${title}`);
 }
 
 export const sendNewRefreshToken = async (context: Context, to: string, message: string, title: string) => {
