@@ -186,8 +186,10 @@ export default (link: string, email: string) => {
 				font-size: 16px;
 				text-align: left;
 				}#baseTextBlock .mcnTextBlock a {
-				color: #009de0;
+				color: white;
 				text-decoration: none;
+				background-color: #009de0;
+				padding: 10px;
 				}#templatePreFooter {
 				background-color: #fff;
 				border-top: 0;
@@ -321,7 +323,7 @@ export default (link: string, email: string) => {
 													<tbody class="mcnTextBlockOuter">
 													  <tr>
 															<td class="mcnTextContent" style="padding-top:20px; padding-bottom: 20px; padding-right:10px; padding-left:10px;" valign="middle">
-																<h1>RSM Hungary</h1>
+																<h1>Digital client identification</h1>
 															</td>
 													  </tr>
 													</tbody>
@@ -354,7 +356,7 @@ export default (link: string, email: string) => {
                                     
                                     <p>Ellenőriztük a beküldütt online azonosító adatlapját. Egyes mezőkhöz megjegyzéseket fűztünk. Kérjük az alábbi privát linkre kattintva tekintse át az adatait és a szükséges módosításukat követően küldje vissza számunkra.</p>
                                     
-                                    <p><a href="${link}" target="_blank">[KATTINTSON IDE]</a></p>
+                                    <p><a href="${link}" target="_blank">Kattintson ide</a></p>
                                     
                                     <p>Az űrlapot nem tudjuk addig lezártnak tekinteni, ameddig az érintett mezők javítását meg nem kaptuk.</p>
                                     
@@ -368,7 +370,7 @@ export default (link: string, email: string) => {
                                     
                                     <p>Your online ID form has been processed. Some fields were marked with comments of our administration team. Please review these data by clicking on the private link below and provide us with the necessary changes as soon as possible.</p>
                                     
-                                    <p><a href="${link}" target="_blank">[CLICK HERE]</a></p>
+                                    <p><a href="${link}" target="_blank">Click here</a></p>
                                     
                                     <p>The form cannot be considered closed until we have received the requested corrections.</p>
                                     

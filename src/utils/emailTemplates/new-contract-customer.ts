@@ -186,8 +186,10 @@ export default (link: string, email: string) => {
 				font-size: 16px;
 				text-align: left;
 				}#baseTextBlock .mcnTextBlock a {
-				color: #009de0;
+				color: white;
 				text-decoration: none;
+				background-color: #009de0;
+				padding: 10px;
 				}#templatePreFooter {
 				background-color: #fff;
 				border-top: 0;
@@ -321,7 +323,7 @@ export default (link: string, email: string) => {
 													<tbody class="mcnTextBlockOuter">
 													  <tr>
 															<td class="mcnTextContent" style="padding-top:20px; padding-bottom: 20px; padding-right:10px; padding-left:10px;" valign="middle">
-																<h1>RSM Hungary</h1>
+																<h1>Digital client identification</h1>
 															</td>
 													  </tr>
 													</tbody>
@@ -355,7 +357,7 @@ export default (link: string, email: string) => {
 
 																	<p>Tekintettel arra, hogy az Önök, mint megbízó vonatkozásában nem állnak teljes körűen rendelkezésre az ügyfél-átvilágítás eredményei,  így kérjük töltse ki az online azonosító adatlapot, különös tekintettel az azon szereplő tényleges tulajdonosi nyilatkozatot.</p>
 
-																	<p><a href="${link}" target="_blank">[Kitöltöm az online azonosító adatlapot]</a></p>
+																	<p><a href="${link}" target="_blank">Kitöltöm az online azonosító adatlapot</a></p>
 
 																	<p>Felhívjuk szíves figyelmüket, hogy az azonosítás elmaradása esetén az RSM Hungary Zrt. további szolgáltatást nem nyújthat az ügyfél részére.</p>
 
@@ -377,7 +379,7 @@ export default (link: string, email: string) => {
 
 																	<p>Regarding to the absence of complete results of due diligence measures applied on your firm as client, we would like to ask you to provide us our filled  online identification form, including the declaration of the beneficial owner:</p>
 
-																	<p><a href="${link}" target="_blank">[I fill out the online ID form]</a></p>
+																	<p><a href="${link}" target="_blank">I fill out the online ID form</a></p>
 
 																	<p>Please note, in case of failure in submission of the necessary documents, due to the AML Act, RSM Hungary Zrt. is not allowed to provide services for your firm thereafter.</p>
 

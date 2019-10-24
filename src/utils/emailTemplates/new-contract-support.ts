@@ -186,8 +186,10 @@ export default (link: string, email: string) => {
 				font-size: 16px;
 				text-align: left;
 				}#baseTextBlock .mcnTextBlock a {
-				color: #009de0;
+				color: white;
 				text-decoration: none;
+				background-color: #009de0;
+				padding: 10px;
 				}#templatePreFooter {
 				background-color: #fff;
 				border-top: 0;
@@ -321,7 +323,7 @@ export default (link: string, email: string) => {
 													<tbody class="mcnTextBlockOuter">
 													  <tr>
 															<td class="mcnTextContent" style="padding-top:20px; padding-bottom: 20px; padding-right:10px; padding-left:10px;" valign="middle">
-																<h1>RSM Hungary</h1>
+																<h1>Digital client identification</h1>
 															</td>
 													  </tr>
 													</tbody>
@@ -349,23 +351,19 @@ export default (link: string, email: string) => {
 																<tr>
 																	<td class="mcnTextBlockInner" style="color: #57585b; font-family: Helvetica, Arial, sans-serif; font-size: 16px; padding: 14px 10px;" valign="top">
 																	<p><strong>please scroll down for the English version</strong></p>
-																	<p>Tisztelt Ügyfelünk,</p>
+																	<p>Tisztelt Ügyfelünk!</p>
 
-																	<p>a pénzmosás és a terrorizmus finanszírozása megelőzéséről és megakadályozásáról szóló 2017. évi LIII. törvény („Pmt.”) alapján az RSM Hungary Zrt.,  mint a Pmt. hatálya alá tartozó szolgáltató 2019. október 31-ét követően köteles az ügyleti megbízás teljesítését megtagadni a Pmt. alapján,  ha az ügyféllel 2017. június 26. előtt létesített üzleti kapcsolatot és az ügyfél vonatkozásában az ügyfél-átvilágítási intézkedéseket  2019. október 31-ig nem végezte el, és az ügyfél vonatkozásában az ügyfél-átvilágítás eredményei 2019. október 31-ig nem állnak teljes körűen rendelkezésére.</p>
+																	<p>A hatályos jogszabályok alapján kötelezettek vagyunk partnereinket azonosítani. Az adatok megadásának megkönnyítésére készített online adatlapunkon egyszerűen meg tudja adni számunkra a jogszabályok által előírt adatokat és dokumentumokat. </p>
 
-																	<p>Tekintettel arra, hogy az Önök, mint megbízó vonatkozásában nem állnak teljes körűen rendelkezésre az ügyfél-átvilágítás eredményei,  így kérjük töltse ki az online azonosító adatlapot, különös tekintettel az azon szereplő tényleges tulajdonosi nyilatkozatot.</p>
+																	<p><a href="${link}" target="_blank">Megadom a szükséges adatokat</a></p>
 
-																	<p><a href="${link}" target="_blank">[Kitöltöm az online azonosító adatlapot]</a></p>
+																	<p>Az online adatlap kitöltése néhány percet vesz igénybe, a megkezdett űrlap befejezéséhez – amennyiben a kitöltést megszakítja - a linkre kattintva bármikor visszatérhet. </p>
 
-																	<p>Felhívjuk szíves figyelmüket, hogy az azonosítás elmaradása esetén az RSM Hungary Zrt. további szolgáltatást nem nyújthat az ügyfél részére.</p>
+																	<p>A pénzmosás és terrorizmus finanszírozás megelőzéséről szóló törvény alapján az RSM Hungary Zrt. köteles ügyfeleit azonosítani, illetve 2019. október 31-ét követően a megbízás teljesítését megtagadni, ha a szükséges adatok nem állnak teljeskörűen rendelkezésre. Felhívjuk szíves figyelmét, hogy az azonosítás elmaradása esetén további szolgáltatást nem nyújthatunk Ön, illetve társasága részére! </p>
 
-																	<p>Tekintettel arra is, hogy AZ EURÓPAI PARLAMENT ÉS A TANÁCS (EU) 2016/679 RENDELETE (2016. április 27.) a természetes személyeknek a személyes adatok kezelése tekintetében  történő védelméről és az ilyen adatok szabad áramlásáról, valamint a 95/46/EK rendelet hatályon kívül helyezéséről (általános adatvédelmi rendelet)  2018. május 25. napjától alkalmazandó, így a Felek között létrejött keretszerződés frissítése is szükséges. </p>
+																	<p>A megadott információk alapján a szerződésmódosításhoz szükséges adatok birtokában a megállapodás-tervezetet megküldjük Önnek emailben. </p>
 
-																	<p>Erre figyelemmel az ügyfél azonosítás elvégzésével egyidejűleg az RSM Hungary Zrt. előkészíti a felek közötti megbízási szerződés módosítását,  amely alapján a 2019.v001.01 verziószámú ÁSZF http://aszf.rsm.hu/2019.v001.01/hun és az Egyedi Megállapodás rendelkezései a korábbi keretszerződés rendelkezései helyébe lépnek.  Az azonosítási adatlap és tényleges tulajdonosi nyilatkozat RSM Hungary Zrt-hez történő visszaérkezését követően az erre vonatkozó megállapodás tervezetét is megküldjük.</p>
-
-																	<p>Amennyiben a fentiekkel kapcsolatos kérdésük merülne fel, úgy a <a href="mailto:${email}">${email}</a> email címen kaphatnak további felvilágosítást.</p>
-
-																	<p>Együttműködésüket köszönjük,</p>
+																	<p>Együttműködését köszönjük! Bízunk abban, hogy a digitalizált adatbekéréssel az Önök munkáját is megkönnyítettük!</p>
 
 																	<p>RSM Hungary Adótanácsadó és Pénzügyi Szolgáltató Zrt.</p>
 
@@ -373,21 +371,17 @@ export default (link: string, email: string) => {
 
 																	<p>Dear Client,</p>
 
-																	<p>As RSM Hungary Zrt. is subject to the Act LIII of 2017 on the Prevention and Combating of Money Laundering and Terrorist Financing (hereinafter: the ’AML Act’),  in case the business relationship has been established before the 26th June 2017, and the customer due diligence measures have not been duly taken until 31th October 2019,  and the results of the customer due diligence measures are not fully available until 31th October 2019, as of the 31th October 2019, RSM Hungary Zrt,  shall deny fulfilling contractual obligations on the basis of the AML Act.</p>
+																	<p>According to the legal regulations in force we are obliged to identify our partners. In the online data form, which we prepared to facilitate data recording for you, you can provide easily all required data and documents.</p>
 
-																	<p>Regarding to the absence of complete results of due diligence measures applied on your firm as client, we would like to ask you to provide us our filled  online identification form, including the declaration of the beneficial owner:</p>
+																	<p><a href="${link}" target="_blank">Digital client identification – I am providing the data</a></p>
 
-																	<p><a href="${link}" target="_blank">[I fill out the online ID form]</a></p>
+																	<p>Filling in the online data sheet requires a few minutes. You can switch back to the online data sheet anytime – in case you interrupt data recording - by clicking the link above.</p>
 
-																	<p>Please note, in case of failure in submission of the necessary documents, due to the AML Act, RSM Hungary Zrt. is not allowed to provide services for your firm thereafter.</p>
+																	<p>Based on the provisions of the Act on Combating Money Laundering and the Financing of Terrorism, RSM Hungary Zrt. is obliged to identify its clients and to refuse to fulfil any assignment following 31 October 2019 if the necessary documents are not available completely. We wish to point it out to you that we are not allowed to provide further services to you or your company in the case of missing identification.</p>
 
-																	<p>As the Regulation (EU) No 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the  free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation) came in effect on 15th May 2018, an update is also required for the Individual Agreement between the Parties.</p>
+																	<p>Based on the information provided, we will send you the draft agreement via e-mail after we received the data necessary for the amendment of the contract.</p>
 
-																	<p>Given these circumstances, RSM Hungary Zrt. prepares the amendment of the effective Individual Agreement. The modified GTCC with the version number of 2019.v001.01 (http://aszf.rsm.hu/2019.v001.01/eng) and the provisions of the Individual Agreement will supersede the former arrangement between the Parties.  Following the receipt of the identification form by RSM Hungary Zrt., and the declaration of the beneficial owner, the draft of the modified contract will be delivered as well.</p>
-
-																	<p>To obtain any additional information related to this request, please contact <a href="mailto:${email}">${email}</a>.</p>
-
-																	<p>Thank you for your cooperation,</p>
+																	<p>We thank you very much for your cooperation. We hope that by requesting you of digital data supply we assisted in simplifying your job too.</p>
 
 																	<p>RSM Hungary Tax and Financial Advisory Services Plc.</p>
 																	</td>

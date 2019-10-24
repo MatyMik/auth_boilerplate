@@ -186,8 +186,10 @@ export default (link: string, email: string) => {
 				font-size: 16px;
 				text-align: left;
 				}#baseTextBlock .mcnTextBlock a {
-				color: #009de0;
+				color: white;
 				text-decoration: none;
+				background-color: #009de0;
+				padding: 10px;
 				}#templatePreFooter {
 				background-color: #fff;
 				border-top: 0;
@@ -321,7 +323,7 @@ export default (link: string, email: string) => {
 													<tbody class="mcnTextBlockOuter">
 													  <tr>
 															<td class="mcnTextContent" style="padding-top:20px; padding-bottom: 20px; padding-right:10px; padding-left:10px;" valign="middle">
-																<h1>RSM Hungary</h1>
+																<h1>Digital client identification</h1>
 															</td>
 													  </tr>
 													</tbody>
@@ -353,7 +355,7 @@ export default (link: string, email: string) => {
 
 																		<p>Az online azonosító adatlap kitöltéséhez egy új link került igényelésre. Az igénylés jóváhagyásához és az ahhoz tartozó új privát link létrehozásához, majd kiküldéséhez kattintson az alábbi linken.</p>
 																		
-																		<p><a href="${link}" target="_blank">[KATTINTSON IDE]</a></p>
+																		<p><a href="${link}" target="_blank">Kattintson ide</a></p>
 																		
 																		<p>Amennyiben az igénylést nem Ön küldte vagy nem tud annak feladatójáról, ne kattintson a linkre. Ebben az esetben kérjük értesítse adminisztrációs csapatunkat a <a href="mailto:${email}">${email}</a> email címen.</p>
 																		
@@ -367,7 +369,7 @@ export default (link: string, email: string) => {
 																		
 																		<p>A new link has been requested to complete the online ID form. Please click the link below to approve this request and to send a new generated private link for you.</p>
 																		
-																		<p><a href="${link}" target="_blank">[CLICK HERE]</a></p>
+																		<p><a href="${link}" target="_blank">Click here</a></p>
 
 																		<p>If you did not submit any request to us for this purpose, please do not click on the link and please contact our administration team at <a href="mailto:${email}">${email}</a> immediately.</p>
 																		
