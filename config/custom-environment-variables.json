@@ -34,6 +34,7 @@
     "host": "EMAIL_HOST",
     "port": "EMAIL_PORT",
     "from": "EMAIL_FROM",
+    "fromName": "EMAIL_FROM_NAME",
     "to": "EMAIL_TO",
     "admin": "EMAIL_ADMIN",
     "header": {

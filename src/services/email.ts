@@ -6,15 +6,17 @@ import { Context } from '../context';
 import { RequestError } from '../utils/errors';
 
 const sendWithSMTP = async (to: string, subject: string, message: string) => {
-  const { host, port, from } = config.get('email'); 
+  const { host, port, from, fromName } = config.get('email'); 
+  const nextFrom = `"${fromName}"<${from}>`;
   const transporter = nodemailer.createTransport({ host, port, secure: false, tls: {rejectUnauthorized: false} });
-  const options = { from, to, subject, html: message, text: message }
+  const options = { from: nextFrom, to, subject, html: message, text: message }
   await transporter.sendMail(options);
 }
 
 const sendWithAxios = async (to: string, subject: string, message: string) => {
-  const { endpoint, from, header } = config.get('email'); 
-  await axios.post(endpoint, { from, to, subject, message }, header);
+  const { endpoint, from, header, fromName } = config.get('email');
+  const nextFrom = `"${fromName}"<${from}>`;
+  await axios.post(endpoint, { from: nextFrom, to, subject, message }, header);
 }
 
 const send = async (context: Context, to: string, message: string, subject: string) => {

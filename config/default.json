@@ -34,6 +34,7 @@
     "host": null,
     "port": 587,
     "from": "dogsy@localhost.com",
+    "fromName": "Dogsy",
     "to": "szollarp@gmail.com",
     "admin": "szollarp@gmail.com",
     "header": {
