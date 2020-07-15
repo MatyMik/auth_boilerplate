@@ -353,7 +353,7 @@ export default (link: string, email: string) => {
 																		<p><strong>please scroll down for the English version</strong></p>
 																		<p>Tisztelt Ügyfelünk!</p>
 
-																		<p>Az online azonosító adatlap kitöltéséhez egy új link került igényelésre. Az igénylés jóváhagyásához és az ahhoz tartozó új privát link létrehozásához, majd kiküldéséhez kattintson az alábbi linken.</p>
+																		<p>Az online azonosító adatlapunk kitöltéséhez egy új link került igényelésre. Az igénylés jóváhagyásához és az ahhoz tartozó új privát link létrehozásához, majd kiküldéséhez kattintson az alábbi linken.</p>
 																		
 																		<p><a href="${link}" target="_blank">Kattintson ide</a></p>
 																		

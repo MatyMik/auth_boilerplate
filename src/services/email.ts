@@ -14,7 +14,7 @@ const sendWithSMTP = async (to: string, subject: string, message: string) => {
 }
 
 const sendWithAxios = async (to: string, subject: string, message: string) => {
-  const { endpoint, from, header, fromName } = config.get('email');
+  const { endpoint, from, header, fromName } = config.get('email'); 
   const nextFrom = `"${fromName}"<${from}>`;
   await axios.post(endpoint, { from: nextFrom, to, subject, message }, header);
 }
@@ -32,15 +32,11 @@ const send = async (context: Context, to: string, message: string, subject: stri
   } catch(error) { throw new RequestError(error.toString()) }
 }
 
-export const sendNewContractCreated = async (context: Context, to: string, message: string, title: string) => {
-  await send(context, to, message, `RSM Online ID form – RSM Online azonosító adatlap - ${title}`);
-}
-
 export const sendNewRefreshToken = async (context: Context, to: string, message: string, title: string) => {
   await send(context, to, message, `Request for new token – Új token igénylése - ${title}`);
 }
 
-export const sendReopenContract = async (context: Context, to: string, message: string, title: string) => {
-  await send(context, to, message, `RSM Online ID form (reopened) - Online azonosító adatlap (újranyitva) - ${title}`);
-  await send(context, config.get('email.admin'), message, `RSM Online ID form (reopened) - Online azonosító adatlap (újranyitva) - ${title}`);
+export const sendNewHash = async (context: Context, to: string, message: string, title: string) => {
+  await send(context, to, message, `New token – Új token – ${title}`);
 }
+

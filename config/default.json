@@ -1,12 +1,9 @@
 {
   "server": {
-    "port": 9000
+    "port": 9001
   },
   "app": {
-    "hostname": "http://localhost:5000",
-    "contract": {
-      "hostname": "http://localhost:3000"
-    }
+    "hostname": "http://localhost:5000"
   },
   "db": {
     "host": "localhost",
@@ -24,9 +21,8 @@
     "enabled": false
   },
   "auth": {
-    "jwtSecret": "cGFzc3dvcmQxc2Rmc2ZmYW9pcGRuanNuZHBkaWtsY2FkYw==",
-    "authTokenExpiration": "30d",
-    "verificationTokenExpiration": "2h",
+    "jwtSecret": "cGFzc379w4egrhwr8ecmQxc2Rmc2siprnjsYW9pcGRuanNuZHBkaWtsY2FkYw==",
+    "authTokenExpiration": "1d",
     "saltGenRounds": 10
   },
   "email": {

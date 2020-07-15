@@ -2,19 +2,17 @@ import config from 'config';
 import { Db } from 'mongodb';
 import * as logger from './services/logger';
 import initDB from './services/db';
-import initModels from './services/models';
 import * as jwt from './services/jwt';
 import * as email from './services/email';
-import { User } from './types'
+import initModels from './services/models';
 
 export type Context = {
   config: any;
   logger: typeof logger;
   db: Db;
   models: ReturnType<typeof initModels>;
-  jwt: typeof jwt;
-  user?: User;
-  email: typeof email;
+  jwt: any;
+  email: any;
 };
 
 export const create = async (): Promise<Context> => {

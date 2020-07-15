@@ -17,31 +17,31 @@ export class ApiError extends Error {
 }
 
 export class RequestError extends ApiError {
-  static message = 'Request error';
+  static message = 'REQUEST_ERROR';
   static status = 400;
   static code = 'INVALID_REQUEST';
 }
 
 export class AuthorizationError extends ApiError {
-  static message = 'Unauthorized';
+  static message = 'UNAUTHORIZED';
   static status = 401;
   static code = 'UNAUTHORIZED';
 }
 
 export class PermissionError extends ApiError {
-  static message = 'Permission error';
+  static message = 'PERMISSION_ERROR';
   static status = 403;
   static code = 'PERMISSION_ERROR';
 }
 
 export class NotFoundError extends ApiError {
-  static message = 'Resource not found';
+  static message = 'RESOURCE_NOT_FOUND';
   static status = 404;
   static code = 'NOT_FOUND';
 }
 
 export class ValidationError extends ApiError {
-  static message = 'Validation error';
+  static message = 'VALIDATION_ERROR';
   static status = 422;
   static code = 'VALIDATION_ERROR';
 }

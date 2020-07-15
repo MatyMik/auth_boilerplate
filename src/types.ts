@@ -114,11 +114,10 @@ export type Contract = {
   status: string;
   sections: any;
   validation: any;
-  contact_email: string;
-  contact_name: string;
+  token: any;
+  refresh: any;
   key: string;
-  token: string;
-  refresh: string;
+  contact_email: string;
 };
 
 export type Client = {
@@ -131,7 +130,11 @@ export type Client = {
 export enum Status {
   NEW = "NEW",
   IN_PROGRESS = "IN_PROGRESS",
-  FINISHED = "FINISHED"
+  FINISHED = "FINISHED",
+  VIEWED = "VIEWED",
+  NEW_TOKEN = "NEW_TOKEN",
+  EXPIRED_TOKEN = "EXPIRED_TOKEN",
+  REOPEN = "REOPEN"
 };
 
 export * from './context';

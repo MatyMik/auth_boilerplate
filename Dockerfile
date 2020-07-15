@@ -17,10 +17,10 @@ RUN npm run build
 
 # Second build
 FROM node:10.16.3-alpine
-RUN apk add busybox-extras
 ENV NODE_ENV production
+RUN apk add busybox-extras
 WORKDIR /app
-EXPOSE 9000
+EXPOSE 9001
 COPY --from=build /app /app
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait /wait
 RUN chmod +x /wait
