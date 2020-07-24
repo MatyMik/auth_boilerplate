@@ -1,0 +1,63 @@
+name: build image
+
+on:
+  push:
+    branches:
+      - master
+  
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set docker image tag
+      id: tag
+      run: echo "::set-output name=tag::$(date +'%Y%m%d%H%M')"
+
+    - name: Run docker build
+      run: |
+        docker build . --tag ${{secrets.DOCKER_ORGANIZATION_NAME}}/${{secrets.DOCKER_IMAGE_NAME}}:${{steps.tag.outputs.tag}}
+  
+    - name: Run docker push
+      run: |
+        docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+        docker push ${{secrets.DOCKER_ORGANIZATION_NAME}}/${{secrets.DOCKER_IMAGE_NAME}}:${{steps.tag.outputs.tag}}
+        
+    - name: Build success
+      if: success()
+      uses: 8398a7/action-slack@v2
+      with:
+        status: custom
+        payload: |
+          {
+            text: "Image build success",
+            attachments: [{
+              "author_name": "devops-bot",
+              fallback: 'fallback',
+              color: 'good',
+              title: 'Image uploaded to docker hub',
+              text: '${{secrets.DOCKER_ORGANIZATION_NAME}}/${{secrets.DOCKER_IMAGE_NAME}}:${{steps.tag.outputs.tag}}'
+            }]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+
+    - name: Build failed
+      if: failure()
+      uses: 8398a7/action-slack@v2
+      with:
+        status: custom
+        payload: |
+          {
+            text: "Image build failed",
+            attachments: [{
+              "author_name": "devops-bot",
+              fallback: 'fallback',
+              color: 'danger',
+              title: 'Build docker image threw an error',
+              text: '${{secrets.DOCKER_ORGANIZATION_NAME}}/${{secrets.DOCKER_IMAGE_NAME}}:${{steps.tag.outputs.tag}}'
+            }]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
