@@ -19,7 +19,7 @@ export type User = {
   email: string;
   disabled: boolean;
   suspended: boolean;
-  password?: string | null;
+  password?: string | null;
   role: UserRole;
 };
 
@@ -45,7 +45,7 @@ export type ContractSignatory = {
   id_type: string;
   phone: string;
   email: string;
-  uploads: any[] | null;
+  uploads: any[] | null;
   position?: string;
   independent_representation?: string;
 };
@@ -82,7 +82,7 @@ export type ContractOwner = {
   nature_and_extent?: string;
   is_public_figure?: boolean;
   public_role?: string;
-  uploads: any[] | null;
+  uploads: any[] | null;
 }
 
 export type ContractHistory = {
@@ -135,6 +135,13 @@ export enum Status {
   NEW_TOKEN = "NEW_TOKEN",
   EXPIRED_TOKEN = "EXPIRED_TOKEN",
   REOPEN = "REOPEN"
+};
+
+export type Customer = {
+  _id: ObjectID | string;
+  name: string;
+  dbname: string;
+  domain: string;
 };
 
 export * from './context';

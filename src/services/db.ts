@@ -1,4 +1,4 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient } from "mongodb";
 
 export type DbOptions = {
   host: string;
@@ -6,11 +6,10 @@ export type DbOptions = {
   database: string;
 };
 
-export default async ({ host, port, database }: DbOptions): Promise<Db> => {
+export default async ({ host, port }: DbOptions): Promise<MongoClient> => {
   try {
     const uri = `mongodb://${host}:${port}`
     const connection: MongoClient = await MongoClient.connect(uri, { useNewUrlParser: true });
-    const db: Db = connection.db(database);
-    return db;
-  } catch(error) { throw error; }
+    return connection;
+  } catch (error) { throw error; }
 };

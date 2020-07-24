@@ -3,7 +3,7 @@
     "port": 9001
   },
   "app": {
-    "hostname": "http://localhost:5000"
+    "hostname": "http://localhost:3000"
   },
   "db": {
     "host": "localhost",

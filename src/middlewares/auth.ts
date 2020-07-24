@@ -3,6 +3,7 @@ import passport from 'passport';
 import { Strategy, ExtractJwt, VerifiedCallback } from 'passport-jwt';
 import { ContextualRequest } from '../types';
 import { PermissionError, AuthorizationError } from '../utils/errors';
+import { getDatabaseName } from '../utils/customer';
 
 passport.use(
   'contract-jwt',
@@ -19,10 +20,11 @@ passport.use(
     },
     async (req: ContextualRequest, { hash }: { hash: string }, done: VerifiedCallback) => {
       try {
-        const token = req.headers.authorization.replace('Bearer ','');
+        const token = req.headers.authorization.replace('Bearer ', '');
         if (!token) throw new AuthorizationError();
         await req.context.jwt.resolveToken(token).catch(() => { throw new PermissionError() });
-        const contract = await req.context.models.contract.findByHashAndToken(hash, token);
+        const dbName = await getDatabaseName(req) as string;
+        const contract = await req.context.models.contract.findByHashAndToken(dbName, hash, token);
         if (!contract) throw new PermissionError();
         done(null, contract);
       } catch (error) {
