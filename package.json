@@ -64,7 +64,7 @@
     "supertest": "^3.3.0",
     "ts-jest": "^23.10.5",
     "tsc-watch": "^2.1.2",
-    "typescript": "^3.2.2"
+    "typescript": "^3.9.7"
   },
   "jest": {
     "roots": [
