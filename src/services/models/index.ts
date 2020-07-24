@@ -1,6 +1,8 @@
-import { Db } from "mongodb";
+import { MongoClient } from "mongodb";
 import contracts from "./contract";
+import customer from "./customer";
 
-export default (db: Db) => ({
-  contract: contracts(db)
+export default (connection: MongoClient) => ({
+  contract: contracts(connection),
+  customer: customer(connection)
 });
