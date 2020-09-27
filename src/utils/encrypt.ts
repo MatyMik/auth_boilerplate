@@ -1,7 +1,15 @@
-export const encodeJsonToBase64 = (json: any) => {
-  return new Buffer(JSON.stringify(json)).toString('base64')
-}
+import bcrypt from "bcrypt";
 
-export const decodeBase64ToJson = (base64: string) => {
-  return JSON.parse(new Buffer(base64, 'base64').toString('utf-8'))
-}
+export const hashPassword = async (
+  password: string,
+  saltRounds: number = 10
+): Promise<string> => {
+  return await bcrypt.hash(password, saltRounds);
+};
+
+export const comparePassword = async (
+  password: string,
+  hashedPassword: string
+): Promise<boolean> => {
+  return await bcrypt.compare(password, hashedPassword);
+};

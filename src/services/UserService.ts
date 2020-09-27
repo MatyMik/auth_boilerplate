@@ -1,5 +1,6 @@
 import { getConnection } from "typeorm";
 import { User } from "../models/User";
+import { comparePassword } from "../utils/encrypt";
 
 interface IUser {
   email?: string;
@@ -8,7 +9,7 @@ interface IUser {
 
 export class UserService {
   async findOneById(id: number) {
-    await getConnection()
+    return await getConnection()
       .createQueryBuilder()
       .select("user")
       .from(User, "user")
@@ -16,8 +17,17 @@ export class UserService {
       .getOne();
   }
 
+  async findOneByEmail(email: string) {
+    return await getConnection()
+      .createQueryBuilder()
+      .select("user")
+      .from(User, "user")
+      .where("user.email = :email", { email })
+      .getOne();
+  }
+
   async save(user: User) {
-    await getConnection()
+    return await getConnection()
       .createQueryBuilder()
       .insert()
       .into(User)
@@ -25,11 +35,14 @@ export class UserService {
       .execute();
   }
   async update(id: number, newProp: IUser) {
-    await getConnection()
+    return await getConnection()
       .createQueryBuilder()
       .update(User)
       .set(newProp)
       .where("id = :id", { id })
       .execute();
+  }
+  async validatePassword(password: string, userPassword: string) {
+    return await comparePassword(password, userPassword);
   }
 }

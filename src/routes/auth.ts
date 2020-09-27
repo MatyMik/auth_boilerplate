@@ -3,29 +3,19 @@ import uuid from "uuid";
 import config from "config";
 import crypto from 'crypto';
 import { ContextualRequest, Status } from '../types';
-import mailTemplateRequestNewToken from '../utils/emailTemplates/request-new-token';
-import mailTemplateSetNewToken from '../utils/emailTemplates/set-new-token';
 import { AuthorizationError, PermissionError } from '../utils/errors';
 import { decodeBase64ToJson } from '../utils/encrypt';
-import { getDatabaseName } from '../utils/customer';
 
 const router = Router();
 router.post('/',
   async (req: ContextualRequest, res: Response) => {
-    const dbName = await getDatabaseName(req) as string;
     const { token, hash, key, ipv4 } = decodeBase64ToJson(req.body.data);
     // if token not exists from cookie or header
     if (!token) {
       const contract = await req.context.models.contract.findByHashAndSecret(dbName, hash, key);
       if (!contract) throw new PermissionError();
       await req.context.models.contract.addHistory(dbName, hash, { action: "AUTH", at: Date.now(), ip: ipv4, status: contract.status })
-      if (contract.status === Status.NEW || contract.status === Status.NEW_TOKEN) {
-        const nextToken = await req.context.jwt.createToken(hash);
-        const nextStatus = contract.status === Status.NEW ? Status.VIEWED : Status.IN_PROGRESS;
-        await req.context.models.contract.update(dbName, hash, { token: nextToken, status: nextStatus });
-        await req.context.models.contract.addHistory(dbName, hash, { action: "SET_NEW_AUTH_TOKEN", at: Date.now(), ip: ipv4, status: contract.status })
-        res.json({ token: nextToken });
-      }
+
       else if (contract.status === Status.FINISHED) throw new PermissionError();
       else throw new PermissionError();
       // if cookie exists

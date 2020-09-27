@@ -7,7 +7,6 @@ import cookieParser from "cookie-parser";
 import contextMiddleware from "./middlewares/context";
 import errorMiddleware from "./middlewares/error";
 import auth from "./middlewares/auth";
-import contractRoutes from "./routes/contract";
 import authRoutes from "./routes/auth";
 import discovery from "./utils/discovery";
 import { Context } from "./types";
@@ -29,7 +28,6 @@ export default (context: Context) => {
 
   const api = express.Router();
   api.use("/auth", authRoutes);
-  api.use("/contract", auth, contractRoutes);
   app.use("/", api);
   app.use("/api", api);
   app.use(errorMiddleware);

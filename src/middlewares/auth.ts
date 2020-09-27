@@ -1,37 +1,54 @@
-import config from 'config';
-import passport from 'passport';
-import { Strategy, ExtractJwt, VerifiedCallback } from 'passport-jwt';
-import { ContextualRequest } from '../types';
-import { PermissionError, AuthorizationError } from '../utils/errors';
-import { getDatabaseName } from '../utils/customer';
+import config from "config";
+import passport from "passport";
+import { Strategy } from "passport-local";
+import { ContextualRequest } from "../types";
+import { PermissionError, AuthorizationError } from "../utils/errors";
+import { User } from "../models/User";
 
 passport.use(
-  'contract-jwt',
   new Strategy(
     {
+      usernameField: "email",
       passReqToCallback: true,
-      jwtFromRequest: ExtractJwt.fromExtractors([
-        ExtractJwt.fromAuthHeaderAsBearerToken(),
-        ExtractJwt.fromUrlQueryParameter('x-contract-token'),
-        req => req.cookies['x-contract-token'] || null
-      ]),
-      secretOrKey: config.get('auth.jwtSecret'),
-      ignoreExpiration: true
+      session: true,
     },
-    async (req: ContextualRequest, { hash }: { hash: string }, done: VerifiedCallback) => {
+    async (req: ContextualRequest, email: string, password: string, done) => {
+      const userService = req.context.userService;
       try {
-        const token = req.headers.authorization.replace('Bearer ', '');
-        if (!token) throw new AuthorizationError();
-        await req.context.jwt.resolveToken(token).catch(() => { throw new PermissionError() });
-        const dbName = await getDatabaseName(req) as string;
-        const contract = await req.context.models.contract.findByHashAndToken(dbName, hash, token);
-        if (!contract) throw new PermissionError();
-        done(null, contract);
-      } catch (error) {
-        done(error);
+        const user = await userService.findOneByEmail(email);
+        if (!user) {
+          return done(null, false, { message: "User not found" });
+        }
+        const userValidated = await userService.validatePassword(
+          password,
+          user.password
+        );
+        if (!userValidated) {
+          return done(null, false, { message: "Incorrect password" });
+        }
+        return done(null, user);
+      } catch (err) {
+        return done(err);
       }
     }
   )
 );
+
+passport.serializeUser(function (user: User, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async function (
+  req: ContextualRequest,
+  id: string,
+  done
+) {
+  try {
+    const user = await req.context.userService.findOneById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
 
 export default passport.authenticate("contract-jwt", { session: false });
