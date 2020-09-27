@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "target": "es2017",
     "noImplicitAny": true,
@@ -12,7 +14,7 @@
     "paths": {
       "*": ["node_modules/*"]
     },
-    "jsx": "react",
+    "jsx": "react"
   },
   "include": ["src/**/*"]
 }

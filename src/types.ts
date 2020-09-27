@@ -1,7 +1,6 @@
-import { Request } from 'express';
+import { Request } from "express";
 import { ObjectID } from "mongodb";
-import { Context } from './context';
-import { boolean } from 'joi';
+import { Context } from "./context";
 
 export type ContextualRequest = Request & { context: Context; rawBody: Buffer };
 
@@ -9,29 +8,18 @@ export type Delta<T> = { [key in keyof T]?: T[key] };
 
 export enum UserRole {
   MANAGER = "MANAGER",
-  ENTITY = "ENTITY"
-};
-
-export type User = {
-  _id: ObjectID | string;
-  name: string;
-  username: string;
-  email: string;
-  disabled: boolean;
-  suspended: boolean;
-  password?: string | null;
-  role: UserRole;
-};
+  ENTITY = "ENTITY",
+}
 
 export enum ContractRegion {
   HUNGARY = "hun",
-  NOT_HUNGARY = "not_hun"
-};
+  NOT_HUNGARY = "not_hun",
+}
 
 export enum ContractType {
   PRIVATE_PERSON = "private_person",
-  COMPANY = "company"
-};
+  COMPANY = "company",
+}
 
 export type ContractSignatory = {
   first_name: string;
@@ -59,7 +47,7 @@ export type ContractEntity = {
   representations: string;
   trustee: string;
   uploads: any[] | null;
-}
+};
 
 export type ContractContact = {
   first_name: string;
@@ -67,7 +55,7 @@ export type ContractContact = {
   address: string;
   phone: string;
   email: string;
-}
+};
 
 export type ContractOwner = {
   type: string;
@@ -83,7 +71,7 @@ export type ContractOwner = {
   is_public_figure?: boolean;
   public_role?: string;
   uploads: any[] | null;
-}
+};
 
 export type ContractHistory = {
   _id: string;
@@ -134,8 +122,8 @@ export enum Status {
   VIEWED = "VIEWED",
   NEW_TOKEN = "NEW_TOKEN",
   EXPIRED_TOKEN = "EXPIRED_TOKEN",
-  REOPEN = "REOPEN"
-};
+  REOPEN = "REOPEN",
+}
 
 export type Customer = {
   _id: ObjectID | string;
@@ -144,4 +132,4 @@ export type Customer = {
   domain: string;
 };
 
-export * from './context';
+export * from "./context";

@@ -1,15 +1,8 @@
-import { MongoClient } from "mongodb";
+import { createConnection } from "typeorm";
 
-export type DbOptions = {
-  host: string;
-  port: number;
-  database: string;
-};
+const url = `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB}`;
 
-export default async ({ host, port }: DbOptions): Promise<MongoClient> => {
-  try {
-    const uri = `mongodb://${host}:${port}`
-    const connection: MongoClient = await MongoClient.connect(uri, { useNewUrlParser: true });
-    return connection;
-  } catch (error) { throw error; }
-};
+export default await createConnection({
+  type: "postgres",
+  url,
+});

@@ -1,16 +1,11 @@
-FROM node:12-slim
-ENV NODE_ENV production
-
-# copy files
-WORKDIR /usr/src/app
+FROM node:latest
 
 # copy webapp manifest files
-COPY . .
+#WORKDIR /app/
+
+COPY .package.json ./
 
 # install node dependencies and make
-RUN npm i --production=false
+RUN npm install
 
-# build webapp and clean
-RUN npm run build
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

@@ -1,22 +1,16 @@
-import config from 'config';
-import { Db } from 'mongodb';
-import * as logger from './services/logger';
-import initDB from './services/db';
-import * as jwt from './services/jwt';
-import * as email from './services/email';
-import initModels from './services/models';
+import config from "config";
+import * as logger from "./services/logger";
+import createConnection from "./services/db";
+import { UserService } from "./services/UserService";
 
 export type Context = {
   config: any;
   logger: typeof logger;
-  models: ReturnType<typeof initModels>;
-  jwt: any;
-  email: any;
+  userService: UserService;
 };
 
 export const create = async (): Promise<Context> => {
-  const connection = await initDB(config.get("db"));
-  const models = await initModels(connection);
-  const context = { config, logger, models, jwt, email };
+  const userService = new UserService();
+  const context = { config, logger, userService: userService };
   return context;
 };
