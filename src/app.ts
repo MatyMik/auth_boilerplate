@@ -8,7 +8,6 @@ import contextMiddleware from "./middlewares/context";
 import errorMiddleware from "./middlewares/error";
 import auth from "./middlewares/auth";
 import authRoutes from "./routes/auth";
-import discovery from "./utils/discovery";
 import { Context } from "./types";
 import "reflect-metadata";
 import "./services/db";
@@ -26,11 +25,7 @@ export default (context: Context) => {
   app.use(cookieParser());
   app.use(contextMiddleware(context));
 
-  const api = express.Router();
-  api.use("/auth", authRoutes);
-  app.use("/", api);
-  app.use("/api", api);
+  app.use("/auth", authRoutes);
   app.use(errorMiddleware);
-  discovery(api);
   return app;
 };
