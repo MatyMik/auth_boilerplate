@@ -26,14 +26,6 @@ export class UserService {
       .getOne();
   }
 
-  async save(user: User) {
-    return await getConnection()
-      .createQueryBuilder()
-      .insert()
-      .into(User)
-      .values(user)
-      .execute();
-  }
   async update(id: number, newProp: IUser) {
     return await getConnection()
       .createQueryBuilder()
@@ -44,5 +36,14 @@ export class UserService {
   }
   async validatePassword(password: string, userPassword: string) {
     return await comparePassword(password, userPassword);
+  }
+
+  async addNewUser(email: string, password: string, username: string) {
+    return await getConnection()
+      .createQueryBuilder()
+      .insert()
+      .into(User)
+      .values({ email, password, username })
+      .execute();
   }
 }

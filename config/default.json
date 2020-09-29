@@ -6,9 +6,11 @@
     "hostname": "http://localhost:3000"
   },
   "db": {
-    "host": "localhost",
-    "port": 27017,
-    "database": "dogsy"
+    "host": "auth",
+    "port": 5433,
+    "db": "users",
+    "username": "postgres",
+    "password": "postgres"
   },
   "morgan": {
     "enabled": true,
