@@ -21,25 +21,5 @@
   },
   "discovery": {
     "enabled": false
-  },
-  "auth": {
-    "jwtSecret": "cGFzc379w4egrhwr8ecmQxc2Rmc2siprnjsYW9pcGRuanNuZHBkaWtsY2FkYw==",
-    "authTokenExpiration": "1d",
-    "saltGenRounds": 10
-  },
-  "email": {
-    "endpoint": "http://rsm5gapi.dotin.hu/v1/mailers/sendmail",
-    "host": null,
-    "port": 587,
-    "from": "dogsy@localhost.com",
-    "fromName": "Dogsy",
-    "to": "szollarp@gmail.com",
-    "admin": "szollarp@gmail.com",
-    "header": {
-      "headers": {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      }
-    }
   }
 }

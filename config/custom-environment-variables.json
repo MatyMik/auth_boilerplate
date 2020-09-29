@@ -19,26 +19,5 @@
   },
   "discovery": {
     "enabled": "DISCOVERY_ENABLED"
-  },
-  "auth": {
-    "jwtSecret": "AUTH_JWT_SECRET",
-    "authTokenExpiration": "AUTH_TOKEN_EXPIRATION",
-    "verificationTokenExpiration": "AUTH_VERIFY_TOKEN_EXPIRATION",
-    "saltGenRounds": "AUTH_GEN_ROUNDS"
-  },
-  "email": {
-    "endpoint": "EMAIL_ENDPOINT",
-    "host": "EMAIL_HOST",
-    "port": "EMAIL_PORT",
-    "from": "EMAIL_FROM",
-    "fromName": "EMAIL_FROM_NAME",
-    "to": "EMAIL_TO",
-    "admin": "EMAIL_ADMIN",
-    "header": {
-      "headers": {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      }
-    }
   }
 }

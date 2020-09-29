@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "build": "rimraf lib && tsc",
-    "dev": "tsc -w src/index.ts",
+    "dev": "tsc-watch --onSuccess \"node .\"",
     "test": "jest"
   },
   "author": "",
