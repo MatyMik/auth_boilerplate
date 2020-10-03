@@ -7,3 +7,8 @@ export const validateSignup = [
   body("confirmPassword").isLength({ min: PASSWORD_MIN_LENGTH }),
   body("username").isLength({ min: 1 }),
 ];
+
+export const validateLogin = [
+  body("email").isEmail(),
+  body("password").isLength({ min: PASSWORD_MIN_LENGTH }),
+];
