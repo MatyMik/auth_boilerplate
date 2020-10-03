@@ -7,7 +7,7 @@
   },
   "db": {
     "host": "auth",
-    "port": 5433,
+    "port": 5432,
     "db": "users",
     "username": "postgres",
     "password": "postgres"
