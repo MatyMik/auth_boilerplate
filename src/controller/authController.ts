@@ -1,4 +1,3 @@
-import config from "config";
 import { ContextualRequest } from "../types";
 import { NextFunction, Response } from "express";
 import {

@@ -16,7 +16,6 @@ import { getConnection } from "typeorm";
 import helmet from "helmet";
 
 export default (context: Context) => {
-  console.log(context.db.getRepository(Session));
   const app = express();
   const repository = getConnection().getRepository(Session);
 
